@@ -15,4 +15,4 @@ jobs:
           distribution: 'corretto'
           java-version: '21'
       - name: maven
-        run: mvn -B package && mvn test && echo $secrets.SONAR_TOKEN
+        run: mvn -B package && mvn test && echo ${secrets.SONAR_TOKEN}
