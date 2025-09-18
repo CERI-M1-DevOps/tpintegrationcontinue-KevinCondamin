@@ -13,6 +13,11 @@ public class ListeSimple {
         size++;
     }
 
+    /***
+     * Modifie la première occurrence d'élément par nouvelleValeur
+     * @param element l'élément à modifier
+     * @param nouvelleValeur la nouvelle valeur donnée à l'élément
+     */
     public void modifiePremier(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
         while (courant != null && courant.getElement() != element)
@@ -21,6 +26,11 @@ public class ListeSimple {
             courant.setElement(nouvelleValeur);
     }
 
+    /***
+     * Modifie toutes les occurrences d'élément par nouvelleValeur
+     * @param element l'élément à modifier
+     * @param nouvelleValeur la nouvelle valeur donnée à l'élément
+     */
     public void modifieTous(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
         while (courant != null) {
@@ -43,6 +53,10 @@ public class ListeSimple {
         return sb.toString();
     }
 
+    /***
+     * Supprime la première occurrence d'élément dans la liste
+     * @param element l'élément à supprimer
+     */
     public void supprimePremier(Object element) {
         if (tete != null) {
             if (tete.getElement() == element) {
@@ -63,10 +77,20 @@ public class ListeSimple {
         }
     }
 
+    /***
+     * Supprime toutes les occurrences d'élément dans la liste
+     * @param element l'élément à supprimer
+     */
     public void supprimeTous(int element) {
        tete = supprimeTousRecurs(element, tete);
     }
 
+    /***
+     * Méthode récursive pour supprimer toutes les occurrences d'un élément
+     * @param element l'élément à supprimer
+     * @param tete le nœud courant (au départ la tête de liste)
+     * @return la nouvelle tête de liste
+     */
     public Noeud supprimeTousRecurs(Object element, Noeud tete) {
         if (tete != null) {
             Noeud suiteListe = supprimeTousRecurs(element, tete.getSuivant());
@@ -80,6 +104,10 @@ public class ListeSimple {
         } else return null;
     }
 
+    /***
+     * Retourne le nœud avant le dernier nœud de la liste
+     * @return le nœud avant le dernier nœud de la liste, ou null si la liste est vide ou ne contient qu'un seul nœud
+     */
     public Noeud getAvantDernier() {
         if (tete == null || tete.getSuivant() == null)
             return null;
@@ -94,6 +122,9 @@ public class ListeSimple {
         }
     }
 
+    /***
+     * Inverse la liste chaînée
+     */
     public void inverser() {
         Noeud precedent = null;
         Noeud courant = tete;
