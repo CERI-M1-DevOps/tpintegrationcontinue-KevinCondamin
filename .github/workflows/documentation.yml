@@ -8,6 +8,10 @@ jobs:
   if_merged:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      pages: write
     steps:
       - name: checkout
         uses: actions/checkout@v4
