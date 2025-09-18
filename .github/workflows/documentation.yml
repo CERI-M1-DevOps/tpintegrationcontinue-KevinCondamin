@@ -21,11 +21,10 @@ jobs:
           distribution: 'corretto'
           java-version: '21'
       - name: generate-javadoc
-        run: |
-          mvn -B javadoc:javadoc
+        run: mvn -B javadoc:javadoc
       - name: deploy-javadoc
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/site/apidocs
-          publish_branch: 'gh-pages'
+          publish_branch: gh-pages
