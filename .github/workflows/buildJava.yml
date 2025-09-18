@@ -14,5 +14,10 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '21'
+      - name: cache-maven-packages
+        uses: actions/cache@v4
+        with:
+          key: 'maven cache'
+          path: '~/.m2/repository'
       - name: maven
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=$(echo ${{ github.repository }} | sed 's-/-_-') -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{secrets.SONAR_TOKEN}}
